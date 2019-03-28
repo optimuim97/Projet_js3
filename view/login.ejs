@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>formulaire</title>
+	<link rel="stylesheet" href="css/stylelog.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/jquery-3.3.1.min.js"></script>
+	    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+</head>
+<body>
+	<div class="show-login-btn"><i class="fa fa-sign-in-alt"></i> Show login-form</div>
+	<!-- FORMULAIRE DE CONNEXION-->
+
+	<div class="login_box">
+		<div class="hide-login-btn"><i class="fas fa-times"></i></div>
+		<form action="/login" class="login-form" method="post">
+			<h1>Welcome</h1>
+			
+			<input class="txtb" type='text' name='prenom' value="" placeholder="username" required> 
+			<input class="txtb" type='password' name='password' value="" placeholder="password" required>
+			<input class="login-btn" type='submit'  value="login">
+		</form>
+		<%if (error) { %>
+			<h2 style="color: red"><%=error%></h2>
+		<% } %>
+	</div>
+
+	<script type="text/javascript">
+		$(".show-login-btn").on("click",function(){
+			$(".login_box").toggleClass('showed');
+		});
+		$(".hide-login-btn").on("click",function(){
+			$(".login_box").toggleClass('showed');
+		});
+	</script>
+</body>
+</html>

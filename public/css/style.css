@@ -1,0 +1,232 @@
+ *{
+    margin:0;
+    padding:0; 
+}
+header{
+    width : 100%; 
+    height:  auto;
+}
+
+nav{
+    z-index: 10;
+    background: #efefef;
+    overflow: hidden;
+    position : absolute;
+    width: 100%;
+    box-shadow: -2px -7px 47px 9px rgba(0,0,0,0.35);
+    -moz-box-shadow: -2px -7px 47px 9px rgba(0,0,0,0.35);
+    -webkit-box-shadow: -2px -7px 47px 9px rgba(0,0,0,0.35);
+
+
+}
+
+.logo-section{
+    float:left;
+    padding:18px;
+    font-family:serif;
+}
+
+.hb-button{
+    float:right;
+    background: #222;
+    color:#fff;
+    border:none;
+    font-size: 18px;
+    padding:5px 10px;
+    border-radius: 3px;
+    cursor:pointer;
+    display: none;
+}
+
+nav a {
+    text-decoration: none;
+    color:#282828;
+    font-size : 20px;
+    padding:5px;
+}
+nav ul{
+    overflow:hidden;
+    color : #fff;
+    margin : 0;
+    padding: 0;
+    text-align : center;
+    transition : max-height 0.5s;
+    -webkit-transition: max-height 0.5s;
+    -moz-transition : max-height 0.5s;
+    -ms-transition : max-height 0.5s;
+    -o-transition : max-height 0.5s; 
+}
+
+nav ul li{
+    float : right;
+    display: inline-block;
+    padding: 20px;
+}
+
+li > a{
+    position: relative;
+    color:#000;
+    text-decoration: none;
+    font-size : 15px;
+
+}
+
+li > a:hover{
+    color : #000;
+}
+
+#logo{
+    margin-top: -20px;
+    font-family: 'Miltonian Tattoo', cursive;
+    font-size : 30px;
+    color: black;
+}
+
+li>a:before{
+    content :"";
+    position: absolute;
+    width : 100%;
+    height: 2px;
+    bottom : 0;
+    left : 0;
+    background-color: #000;
+    visibility : hidden ;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition : all 0.3s ease-in-out 0s;
+    transition : all 0.3s ease;
+}
+
+li > a:hover:before{
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+}
+
+
+
+body{
+    font-family : sans-serif;
+    height:auto;
+    /* overflow: hidden; */
+}
+
+#banner{
+    width : 100%;
+    background:url(../images/image.jpg);
+    height: 400px;
+    background-size: 100% 100%;
+}
+.img-wrapper{
+    width : 30%;
+
+    /* background: url(../image/image.jpg); */
+}
+/* img{
+    margin-top : 64px;
+    width : 100%; 
+    height: 30%;
+} */
+ @media screen and (max-width : 768px){
+     .logo-section{
+         float:none;
+     }
+     nav ul{
+         background:#fff;
+         max-height: 0;
+         width : 100%;
+     }
+     nav ul.show{
+         max-height: 20em;
+     }
+     nav ul li{
+         box-sizing: border-box;
+         width : 100%;
+         padding:15px;
+     }
+     .hb-button{
+         display:inline;
+
+     }
+ }
+
+/* TEXT ANIMEE */
+.JAUNE_BOLD_MOYEN
+{
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	FONT-WEIGHT: bold;
+	COLOR : #ffcc00;
+	FONT-SIZE: 5px;
+}
+
+.BLANC_BOLD_MOYEN
+{
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	FONT-WEIGHT: bold;
+	COLOR : #ffffff;
+	FONT-SIZE: 12px;
+}
+
+/*Style Image*/
+
+img{
+	position: relative;
+	margin-top:30px;
+}
+
+.hov{
+	position: absolute;
+	top: 30px;
+	left: 0; 
+	background-color : rgba(0,0,0,0.5);
+	height: 250px;
+	width: 500px;
+	text-align: center;
+	color: #fff;
+ }
+
+.content{
+	margin-top:20%;
+	transform:  translateY(-100px);
+	transition-duration: 0.5s; 
+	height: 250px;
+	width: 400px;
+}
+
+.content_hover{
+	margin-top:20%;
+	transform:translateY(0);
+	transition-duration: 0.5s; 
+
+}
+
+
+/* SECTION DEUX */
+
+.divider
+{
+    width:100px;
+    height: 2px;
+    background: #ffa500;
+    margin: 0 auto;
+    margin-bottom : 50px;
+}
+.heading 
+{   
+    margin-top : 40px;
+    text-align: center;
+    margin-bottom: 20px;        
+}
+footer{
+    padding-top : 30px;
+    padding-bottom : 30px;
+    border-top : solid 1px orange;
+    text-align:center;
+}
+
+footer h3{
+
+    margin-top:70px;
+    text-align : center;
+}
+

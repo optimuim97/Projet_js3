@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Inscription</title>
+	<link rel="stylesheet" href="css/stylelog.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/jquery-3.3.1.min.js"></script>
+	    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+		<link href="https://fonts.googleapis.com/css?family=Miltonian+Tattoo" rel="stylesheet"> 
+		<link href="https://fonts.googleapis.com/css?family=Miltonian+Tattoo|Nanum+Gothic" rel="stylesheet">
+</head>
+
+<header>
+		<nav>
+			<div class="logo-section ">
+				<a href="# " id="logo"> Bi<i class="fas fa-apple-alt"></i>Market</a>
+				<button class="hb-button">Menu</button>
+			</div>
+			<ul>
+				<li><a href="/">Accueil</a></li>
+			</ul>
+		</nav>
+</header>
+
+<body>
+	<div class="show-login-btn"><i class="fa fa-sign-in-alt"></i>Formulaire d'Inscription</div>
+
+	<!-- FORMULAIRE D'INCRIPTION -->
+	<div class="login_box">
+		<div class="hide-login-btn">
+				<i class="fas fa-times"></i></div>
+		<form action="/register" class="login-form" method="post">
+			
+			<h1>Inscription</h1>
+			<input class="txtb" type='text' name='nom' placeholder="Votre nom.." required>
+			<input class="txtb" type='text' name='prenom' placeholder="Votre Prenom.." required>
+			<input class="txtb" type='email' name='email' placeholder="Email...." required>
+			<input class="txtb" type='password' name='password' placeholder="Mot de passe..." required>
+			<input class="txtb" type='password' name='password2' placeholder="Mot de passe Confirmation..." required>
+			<input class="login-btn" type='submit' value="Envoyer" required>
+
+		</form>
+		
+	</div>
+
+	<script type="text/javascript">
+		$(".show-login-btn").on("click",function(){
+			$(".login_box").toggleClass('showed');
+		});
+		$(".hide-login-btn").on("click",function(){
+			$(".login_box").toggleClass('showed');
+		});
+	</script>
+</body>
+</html>

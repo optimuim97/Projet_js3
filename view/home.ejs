@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Accueil</title>
+    <!-- CDN -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">+
+    <script src="https://maxcdn.jquery-3.3.1bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+      <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>-->
+    <!-- CDN END -->
+   
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <title>Bio Market</title>
+    <link href="https://fonts.googleapis.com/css?family=Miltonian+Tattoo" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Miltonian+Tattoo|Nanum+Gothic" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.min.css">
+</head>
+
+<header>
+    <nav>
+        <div class="logo-section ">
+            <a href="# " id="logo"> Bi<i class="fas fa-apple-alt"></i>Market</a>
+            <button class="hb-button">Menu</button>
+        </div>
+        
+        <ul>
+            <li><a href="login">Connexion</a></li>
+            <li><a href="register">S'inscrire</a></li>
+            <li><a href="#">Accueil</a></li>
+        </ul>
+    </nav>
+</header>
+
+<body onload="animator(5);">
+    <section id="banner">
+        
+        <!-- <div class='image-wrapper'>
+            <img src="image/image.jpg" alt="image ">
+        </div>  -->
+        
+        <script>
+         $(document).ready(function(){
+                $('.hb-button').on('click', function(){
+                    $('nav ul').toggleClass('show');
+                });
+            });
+       
+		var tailleObjX = 800;								/* Largeur des objets */
+		var tailleObjY = 60;    						/* Hauteur des objets */
+		var taillePoliceVar = 0;							/* Taille de la police qui sera incr�ment� */
+		var taillePoliceFixe = 55;							/* Taille maximale de la police */
+		var PositionX = (TailleX() - tailleObjX)/2;   		/* Position de l'objet en X */
+        var PositionY = (TailleY() - tailleObjY)/2;   		/* Position de l'objet en Y */
+		var tabMess = new Array();							/* Tableau de messages */
+		var fin = 0;										/* Arr�t de l'animation Focus */
+		var comm;											/* Execution d'une commande en diff�r� */
+		var max = 0;										/* Concernant le focus */
+		var zindex = 0;		                				/* Incr�mentation des z-index des objets */
+		var ch;												/* Manipulation temporaire des cha�nes de caract�res */
+		var nbObj;											/* Nombre d'objets � cr�er (= taille du tableau) */
+		var tailleBarreX = 250;								/* Largeur de l'objet barre */
+		var tailleBarreY = 25;								/* Hauteur de l'objet barre */
+		var PosBarreX = (TailleX() - tailleBarreX)/2;   	/* Position de l'objet barre en X */
+       	var PosBarreY = (TailleY() - tailleBarreY)/2;   	/* Position de l'objet barre en Y */
+
+		function ConstChaine(taille, contenu)
+		{
+			ch = "<table border = 0 width = " + tailleObjX + " height = " + tailleObjY + ">";
+			ch +=  "<tr><td ALIGN=center VALIGN=middle class='BLANC_BOLD_MOYEN'><font size="+taille+">" + contenu + "</font></td></tr></table>";
+			return ch;
+		}
+
+		tabMess[0] = "Bienvenue"
+		tabMess[1] = "A Bio Market"
+		tabMess[2] = "Achetez Commander"
+		tabMess[3] = "La Sante ?"
+		tabMess[4] = "Cest BioMarket"
+
+		/* Pour la cr�ation des objets */
+		var mess0  =  ConstChaine(0, tabMess[0]);
+		var mess1  =  ConstChaine(0, tabMess[1]);
+		var mess2  =  ConstChaine(0, tabMess[2]);
+		var mess3  =  ConstChaine(0, tabMess[3]);
+		var mess4  =  ConstChaine(0, tabMess[4]);
+
+
+        	/* On parcourt le tableau */
+		for (var nbObj = 0; nbObj < tabMess.length; nbObj++)
+        	{
+			var obj = "obj" + nbObj
+			var mess = "mess" + nbObj;
+			
+			CreerObj(obj,PositionX,PositionY,tailleObjX,tailleObjY,0,zindex,eval(mess),"",0);
+			zindex += 1;
+
+			fin = 0;max = 0;	/* Ne pas oublier d'initialiser ces variables � chaque cr�ation d'objets */
+
+			AddCom("VoirObj(obj);",0);
+			while (fin == 0)
+			{	        	
+				AddCom("ModifierObj(obj,'<table border = 0 width = ' + tailleObjX + ' height = ' + tailleObjY + '><tr><td ALIGN=center VALIGN=middle class=BLANC_BOLD_MOYEN><font size="+taillePoliceVar+">"+tabMess[nbObj]+"</font></td></tr></table>');",0);
+				
+				if (taillePoliceVar == taillePoliceFixe) {max = taillePoliceFixe;}
+
+				if ((taillePoliceVar == 0) & (max == taillePoliceFixe)) {fin = 1;}
+
+				if (max != taillePoliceFixe)
+				{
+					comm = "taillePoliceVar+=1";
+				}
+				else
+				{
+					comm = "taillePoliceVar-=1";
+					if ((nbObj + 1) == tabMess.length && max == taillePoliceFixe) {fin = 1;}
+				}
+				eval(comm);
+			}
+		}
+        </script> 
+    </section>
+     
+  <section id='image_presentation'>
+			<div class="container">
+			<div class="heading">
+					<h2>Faites Vos Achats</h2>
+			</div>
+			<div class="divider"></div>
+				
+					
+				<div class="row" style="align-content: center; margin-bottom: 30px;">
+
+					<div class="col-lg-6">
+						<img src="images/f1.jpg" alt="" height="250" width="500px">
+						<div class="hov">
+							<div class="content">
+								<h3>Fruits</h3>
+								<p>Inscrivez-vous Et Profiter</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<img src="images/f1.jpg" alt="" height="250" width="500px">
+						<div class="hov">
+							<div class="content">
+								<h3>Légumes</h3>
+								<p>Facile et Accesible à Tous</p>
+							</div>
+						</div>
+					</div>
+			</div>
+			</div>
+		</div>
+		<script>
+				$(function(){
+					var hov = $('.hov');
+					var img = $('img');
+					var content = $('.content')
+		
+				// cacher le hover
+						hov.hide();
+				//Montrer l'élément
+					img.mouseenter(function(){
+						$(this).next().fadeIn('slow');
+						content.addClass('content_hover'); 
+					});
+		
+					hov.mouseleave(function(){
+						$(this).fadeOut('slow');
+						content.removeClass('content_hover');
+					});
+		
+				});
+			</script>
+  </section>
+
+  <!-- FOOTER -->
+</body>
+
+<footer>
+    <h5>&copy;Copyright, Tous Droits réservés.
+    <br>BioMarket</h5>
+</footer>
+
+</html>
